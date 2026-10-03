@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>egui_html_view demo</title>
+  <style>
+    :root {
+      --accent: #2f6fde;
+      --muted: #7a8494;
+      --card-bg: rgba(47, 111, 222, 0.08);
+    }
+    body { margin: 16px 24px; line-height: 1.5; }
+    h1 { color: var(--accent); margin-bottom: 4px; }
+    .subtitle { color: var(--muted); margin-top: 0; font-style: italic; }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--accent);
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+      padding: 8px 14px;
+      margin: 12px 0;
+    }
+    .warning { background: #fff3cd; color: #664d03; border: 1px dashed #c9a227; padding: 6px 12px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #9aa4b2; padding: 4px 8px; }
+    th { background: var(--accent); color: white; }
+    tr.alt { background: var(--card-bg); }
+    td.num { text-align: right; font-family: monospace; }
+    .badge { background: #2e7d32; color: white; font-size: 0.8em; }
+    blockquote { border-left: 3px solid var(--muted); padding-left: 12px; color: var(--muted); }
+    @media (prefers-color-scheme: dark) {
+      .warning { background: #3d3200; color: #ffe08a; }
+    }
+  </style>
+</head>
+<body>
+  <h1>egui_html_view</h1>
+  <p class="subtitle">An HTML + CSS widget for egui</p>
+
+  <p>This page is rendered <b>natively</b> by egui: no browser engine, no native webview.
+     Text can be <i>selected</i> with the mouse and copied with <kbd>Ctrl+C</kbd>;
+     use <kbd>Ctrl</kbd> + mouse wheel to <span style="color: #c2185b; font-weight: bold">zoom</span>.</p>
+
+  <p>Inline styles: <u>underline</u>, <s>strike-through</s>, <mark>highlight</mark>,
+     <code>inline code</code>, H<sub>2</sub>O, E = mc<sup>2</sup>,
+     <span class="badge">&nbsp;badge&nbsp;</span>, <small>small</small> and <big>big</big> text.
+     Links: <a href="#table">jump to the table</a> or <a href="https://github.com/emilk/egui">egui on GitHub</a>.</p>
+
+  <div class="card">
+    <b>Card.</b> Backgrounds, borders, rounded corners, padding and CSS variables
+    (<code>var(--accent)</code>) are supported.
+  </div>
+
+  <h2>Lists</h2>
+  <ul>
+    <li>Unordered item</li>
+    <li>Nested lists:
+      <ol type="a">
+        <li>first</li>
+        <li>second</li>
+      </ol>
+    </li>
+    <li style="color: #2e7d32">Styled item</li>
+  </ul>
+
+  <h2 id="table">Table</h2>
+  <table>
+    <tr><th>Feature</th><th>Status</th><th>Since</th></tr>
+    <tr><td>Block &amp; inline layout</td><td>supported</td><td class="num">0.1</td></tr>
+    <tr class="alt"><td>Tables with <code>colspan</code></td><td>supported</td><td class="num">0.1</td></tr>
+    <tr><td colspan="2">Flexbox / grid (rendered as blocks)</td><td class="num">&mdash;</td></tr>
+  </table>
+
+  <h2>Code</h2>
+<pre>fn main() {
+    let view = HtmlView::new("&lt;h1&gt;Hello&lt;/h1&gt;");
+    // ...
+}</pre>
+
+  <blockquote>“Simplicity is prerequisite for reliability.” — Edsger W. Dijkstra</blockquote>
+
+  <p class="warning">⚠ JavaScript, forms, floats and positioning are not supported.</p>
+
+  <p style="text-align: center">Centered text</p>
+  <p style="text-align: right">Right-aligned text</p>
+  <hr>
+  <p style="text-align: justify">Justified text: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</body>
+</html>

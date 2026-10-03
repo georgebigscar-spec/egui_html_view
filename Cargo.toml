@@ -1,0 +1,19 @@
+[package]
+name = "egui_html_view"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.95"
+description = "HTML/CSS view widget for egui: scrolling, zoom, CSS styles and text selection"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/georgebigscar-spec/egui_html_view"
+readme = "README.md"
+keywords = ["egui", "html", "css", "widget", "gui"]
+categories = ["gui", "rendering"]
+include = ["src/**", "examples/**", "README.md", "CHANGELOG.md", "LICENSE-*"]
+
+[dependencies]
+egui = "0.36"
+scraper = "0.27"
+
+[dev-dependencies]
+eframe = "0.36"
